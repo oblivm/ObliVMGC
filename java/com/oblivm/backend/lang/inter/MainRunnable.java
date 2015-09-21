@@ -68,8 +68,10 @@ public class MainRunnable {
 			scResult = runnable.main(lenA, lenB, inputA, inputB);
 		}
 		@Override
-		public void prepareOutput(CompEnv<T> gen) throws BadLabelException {
+		public void prepareOutput(CompEnv<T> gen) throws Exception {
 			System.out.println(Utils.toInt(gen.outputToAlice(scResult)));
+			gen.channel.os.write(new byte[]{0});
+			gen.flush();
 		}
 		
 	}
@@ -125,8 +127,10 @@ public class MainRunnable {
 		}
 		
 		@Override
-		public void prepareOutput(CompEnv<T> env) throws BadLabelException {
+		public void prepareOutput(CompEnv<T> env) throws Exception {
 			env.outputToAlice(scResult);
+			env.channel.is.read(new byte[]{0});
+			env.flush();
 		}
 	}
 

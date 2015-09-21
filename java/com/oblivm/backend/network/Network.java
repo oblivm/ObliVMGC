@@ -18,7 +18,7 @@ public class Network {
 	public CustomizedConcurrentQueue queue;
 	ThreadedIO threadedio;
 	public InputStream is;
-	protected OutputStream os;
+	public OutputStream os;
 	Thread thd;
 	boolean  THREADEDIO = true;
 	static int NetworkThreadedQueueSize = 1024*256;
