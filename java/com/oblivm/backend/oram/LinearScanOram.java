@@ -16,7 +16,7 @@ public class LinearScanOram<T> {
 		this.dataSize = dataSize;
 		lib = new IntegerLib<T>(env);
 		content = env.newTArray(N, 0);
-		lengthOfIden = Utils.log2(N);
+		lengthOfIden = Utils.log2Ceil(N);
 		for(int i = 0; i < N; ++i)
 			content[i] = lib.zeros(dataSize);
 	}

@@ -308,6 +308,12 @@ public class Utils {
 	    return 31 - Integer.numberOfLeadingZeros(n);
 	}
 
+	public static int log2Ceil(int n) {
+		int m = log2(n);
+		if((1 << m) < n) m ++;
+		return m;
+	}
+	
 	public static double getRandom() {
 		double ret = Utils.RAND[Utils.RAND_CNT];
 		Utils.RAND_CNT = (Utils.RAND_CNT + 1) % Utils.RAND_LIM;

@@ -72,7 +72,11 @@ public abstract  class EvaRunnable<T> extends com.oblivm.backend.network.Client 
 	}
 
 	public void loadConfig() {
-		File file = new File("Config.conf");
+		loadConfig("Config.conf");
+	}
+	
+	public void loadConfig(String fileName) {
+		File file = new File(fileName);
 		Scanner scanner;
 		String host = null;
 		int port = 0;

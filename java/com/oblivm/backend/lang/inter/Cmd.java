@@ -22,6 +22,7 @@ public class Cmd {
 	public static void main(String[] args) throws Exception {
 		ArgumentParser ap = ArgumentParsers.newArgumentParser("Cmd");
 		ap.addArgument("file").nargs("*").help("File to compile");
+		ap.addArgument("--config").setDefault("Config.conf").help("Config file");
 		ap.addArgument("-la", "--lenghAlice")
 			.help("input length of Alice");
 		ap.addArgument("-t", "--type")
@@ -42,13 +43,13 @@ public class Cmd {
 
 		if(ns.getString("type").equals("gen")) {
 			GenRunnable gen = new MainRunnable.Generator(ns.getString("class"), ns.getString("input"));
-			gen.loadConfig();
+			gen.loadConfig(ns.getString("config"));
 			gen.runCore();
 			if(Flag.CountTime)
 				Flag.sw.print();
 		} else {
 			EvaRunnable eva = new MainRunnable.Evaluator(ns.getString("class"), ns.getString("input"));
-			eva.loadConfig();
+			eva.loadConfig(ns.getString("config"));
 			eva.runCore();
 			if(Flag.CountTime)
 				Flag.sw.print();

@@ -12,7 +12,7 @@ hs_err_pid*
 /bin/
 
 .DS_Store
-.classpath
-.project
+#.classpath
+#.project
 NPOTKey
 source.txt

@@ -15,7 +15,7 @@ import com.oblivm.backend.util.Utils;
 public class CountCircuitOramBasic {
 	int N;
 	int logN;
-	final int capacity = 3;
+	final int capacity = 4;
 	int writecount = 1;
 	int dataSize;
 
@@ -91,7 +91,7 @@ public class CountCircuitOramBasic {
 							.inputOfAlice(new boolean[server.lengthOfPos]);
 					Boolean[] scData = server.env
 							.inputOfAlice(new boolean[server.lengthOfData]);
-
+					
 					server.write(server.lib.toSignals(1),
 							Utils.fromInt(1, server.lengthOfPos),
 							scNewValue, scData);
@@ -112,9 +112,9 @@ public class CountCircuitOramBasic {
 	@Test
 	public void runThreads() throws Exception {
 		for(int i = 10; i <= 30; i+=2 ) {
-			this.logN = 27;
+			this.logN = 10;
 			this.N = 1<<logN;
-			this.dataSize = 64*8;//i+i+i+i+32+32;
+			this.dataSize = logN*2+10;//i+i+i+i+32+32;
 			System.out.print(i+"\t");
 		Thread tGen = new Thread(gen);
 		Thread tEva = new Thread(eva);
@@ -125,4 +125,5 @@ public class CountCircuitOramBasic {
 //		System.out.println();
 		}
 	}
+
 }

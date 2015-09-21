@@ -20,7 +20,7 @@ public class Network {
 	public InputStream is;
 	protected OutputStream os;
 	Thread thd;
-	boolean  THREADEDIO = false;
+	boolean  THREADEDIO = true;
 	static int NetworkThreadedQueueSize = 1024*256;
 	public void setUpThread() {
 		if(THREADEDIO) {

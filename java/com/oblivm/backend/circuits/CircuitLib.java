@@ -39,10 +39,20 @@ public class CircuitLib<T> {
 			return Arrays.copyOfRange(a, 0, length);
 	}
 
-
-	public T enforceBits(T a, int length) {
+	public T enforceBits(T a) {
 		if(a == null)return SIGNAL_ZERO;
 		else return a;
+	}
+
+	public T[] enforceBits(T a, int length) {
+		T[] ret = env.newTArray(length);
+		if(a == null) ret[0] = SIGNAL_ZERO;
+		else
+			 ret[0] = a;
+		for(int i=1; i<ret.length; ++i) {
+			ret[i] = SIGNAL_ZERO;
+		}
+		return ret;
 	}
 
 	public T[] randBools(int length) {

@@ -37,7 +37,10 @@ public class CustomizedConcurrentQueue {
 	
 	public  int pop(byte[] d) {
 		int res =  atomic(d, 2);
-		if(res == 0 && finished){System.out.println("!"); return -1;}
+		if(res == 0 && finished){
+//			System.out.println("!"); 
+			return -1;
+		}
 		else return res;
 	}
 }

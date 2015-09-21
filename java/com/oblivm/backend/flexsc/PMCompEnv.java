@@ -93,6 +93,7 @@ public class PMCompEnv extends BooleanCompEnv {
 	@Override
 	public Boolean and(Boolean a, Boolean b) {
 		++statistic.andGate;
+		++this.numOfAnds;
 		statistic.bandwidth += 3 * 10;
 		return f;
 	}

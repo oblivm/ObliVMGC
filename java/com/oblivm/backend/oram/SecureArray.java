@@ -12,8 +12,12 @@ public class SecureArray<T> {
 	public LinearScanOram<T> trivialOram = null;
 	public RecursiveCircuitOram<T> circuitOram = null;
 	public int lengthOfIden;
-
+	public int length;
+	public int dataSize;
+	
 	public SecureArray(CompEnv<T> env, int N, int dataSize) throws Exception {
+		length = N;
+		this.dataSize = dataSize;
 		useTrivialOram = N <= threshold;
 		if (useTrivialOram) {
 			trivialOram = new LinearScanOram<T>(env, N, dataSize);

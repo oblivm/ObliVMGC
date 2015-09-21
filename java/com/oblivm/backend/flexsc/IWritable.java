@@ -4,7 +4,7 @@ package com.oblivm.backend.flexsc;
 public interface IWritable<T1 extends IWritable<T1, T2>, T2> {
 	public int numBits();
 
-	public T2[] getBits();
+	public T2[] getBits() throws Exception;
 
 	public T1 newObj(T2[] data) throws Exception;
 	

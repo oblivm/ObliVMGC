@@ -54,8 +54,10 @@ public abstract class GenRunnable<T> extends com.oblivm.backend.network.Server i
 		Flag.sw.stopTotal();
 		double e = System.nanoTime();
 		disconnect();
-		if(verbose)
+		if(verbose) {
 			System.out.println("Gen running time:"+(e-s)/1e9);
+			System.out.println("Number Of AND Gates:"+env.numOfAnds);
+		}
 
 	}
 	
@@ -68,8 +70,8 @@ public abstract class GenRunnable<T> extends com.oblivm.backend.network.Server i
 		}
 	}
 
-	public void loadConfig() {
-		File file = new File("Config.conf");
+	public void loadConfig(String configFile) {
+		File file = new File(configFile);
 
 		Scanner scanner;
 		int port=0;
@@ -88,7 +90,7 @@ public abstract class GenRunnable<T> extends com.oblivm.backend.network.Server i
 					else{}
 				}	 
 			}
-			scanner.close();			
+			scanner.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -101,7 +103,7 @@ public abstract class GenRunnable<T> extends com.oblivm.backend.network.Server i
 
 		Class<?> clazz = Class.forName(args[0]+"$Generator");
 		GenRunnable run = (GenRunnable) clazz.newInstance();
-		run.loadConfig();
+		run.loadConfig("Config.conf");
 		run.run();
 		if(Flag.CountTime)
 			Flag.sw.print();

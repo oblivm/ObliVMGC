@@ -59,6 +59,8 @@ public class MainRunnable {
 			inputA = env.inputOfAlice(in);
 			env.flush();
 			inputB = env.inputOfBob(new boolean[lenB]);
+			
+//			System.out.println("LenA="+lenA+"\tLenB="+lenB);
 		}
 		
 		@Override
@@ -100,7 +102,7 @@ public class MainRunnable {
 			lenB = in.length;
 			try {
 				lenA = Utils.fromByte(this.readBytes(4));
-				os.write(Utils.toByte(lenA));
+				os.write(Utils.toByte(lenB));
 				os.flush();
 			} catch (IOException e) {
 				e.printStackTrace();
