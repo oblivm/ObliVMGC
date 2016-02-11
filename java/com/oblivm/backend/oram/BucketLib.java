@@ -3,6 +3,7 @@ package com.oblivm.backend.oram;
 
 import com.oblivm.backend.circuits.BitonicSortLib;
 import com.oblivm.backend.flexsc.CompEnv;
+import java.lang.String;
 
 public class BucketLib<T> extends BitonicSortLib<T> {
 	public Block<T> dummyBlock;
@@ -173,18 +174,22 @@ public class BucketLib<T> extends BitonicSortLib<T> {
 		return new Block<T>(b.iden, b.pos, b.data, b.isDummy);
 	}
 
-	@SuppressWarnings("unchecked")
+	
 	public Block<T>[] newBlockArray(int len) {
-		return new Block[len];
+		@SuppressWarnings("unchecked")
+		Block<T>[] ret = (Block<T>[]) new Block<?>[len];
+		return ret;
 	}
 
-	@SuppressWarnings("unchecked")
 	public Block<T>[][] newBlockMatrix(int x, int y) {
-		return new Block[x][y];
+		@SuppressWarnings("unchecked")
+		Block<T>[][] ret = (Block<T>[][]) new Block<?>[x][y];
+		return ret;
 	}
 
-	@SuppressWarnings("unchecked")
 	public Block<T>[][] newBlockMatrix(int x) {
-		return new Block[x][];
+		@SuppressWarnings("unchecked")
+		Block<T>[][] ret = (Block<T>[][]) new Block<?>[x][];
+		return ret;
 	}
 }

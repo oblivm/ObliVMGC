@@ -11,6 +11,7 @@ import com.oblivm.backend.flexsc.Flag;
 import com.oblivm.backend.flexsc.Mode;
 import com.oblivm.backend.flexsc.Party;
 import com.oblivm.backend.util.Utils;
+import com.oblivm.backend.gc.GCSignal;
 
 public class TestSpeed extends TestHarness {
 
@@ -104,11 +105,12 @@ public class TestSpeed extends TestHarness {
 		tEva.join();
 	}
 	
+
 	public static void main(String args[]) throws Exception {
 		 TestSpeed test = new TestSpeed();
 		 if(args.length == 0){
-			 	GenRunnable gen = test.new GenRunnable();
-				EvaRunnable env = test.new EvaRunnable();
+			 	GenRunnable<GCSignal> gen = test.new GenRunnable<GCSignal>();
+				EvaRunnable<GCSignal> env = test.new EvaRunnable<GCSignal>();
 				Thread tGen = new Thread(gen);
 				Thread tEva = new Thread(env);
 				tGen.start();
@@ -118,7 +120,7 @@ public class TestSpeed extends TestHarness {
 				tEva.join();
 		 }
 		 if(new Integer(args[0]) == 0)
-			 test.new GenRunnable().run();
-		 else test.new EvaRunnable().run();
+			 test.new GenRunnable<GCSignal>().run();
+		 else test.new EvaRunnable<GCSignal>().run();
 	}
 }
