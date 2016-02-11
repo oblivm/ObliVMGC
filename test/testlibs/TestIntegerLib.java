@@ -255,7 +255,7 @@ public class TestIntegerLib extends TestHarness {
 				}
 
 				public int plainCompute(int x, int y) {
-					return (int) (Math.abs(x));
+					return (Math.abs(x));
 				}
 			});
 		}

@@ -107,6 +107,12 @@ public class GCSignal {
 		else
 			return false;
 	}
+	
+	@Override
+	public int hashCode() {
+		return (v)?1:0;
+	}
+
 
 	public String toHexStr() {
 		StringBuilder str = new StringBuilder();

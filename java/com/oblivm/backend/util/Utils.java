@@ -239,6 +239,7 @@ public class Utils {
 		return ret;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static <T> T[] flatten(CompEnv<T> env, T[] ... data) {
 		int length = 0;
 		for (int i = 0; i < data.length; i++) {
@@ -253,6 +254,7 @@ public class Utils {
 		return ret;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static <T> T[][] flatten(CompEnv<T> env, T[][] ... data) {
 		int length = 0;
 		for (int i = 0; i < data.length; i++) {
@@ -269,6 +271,7 @@ public class Utils {
 		return ret;
 	}
 
+	@SuppressWarnings("unchecked")
 	public static <T> void unflatten(T[][] flat, T[][] ... x) {
 		int pos = 0;
 		for (int i = 0; i < x.length; i++) {
@@ -279,6 +282,7 @@ public class Utils {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public static <T> void unflatten(T[] flat, T[] ... x) {
 		int pos = 0;
 		for (int i = 0; i < x.length; i++) {
